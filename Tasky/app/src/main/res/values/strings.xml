@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Tasky</string>
+    <string name="NewTask">NEW TASK</string>
+    <string name="EnterYourTask">Enter your task</string>
+    <string name="TaskName">Task name</string>
+    <string name="TaskDescription">Enter description</string>
+    <string name="AddTask">ADD TASK</string>
+    <string-array name="category">
+        <item>Home</item>
+        <item>School/College</item>
+        <item>Job</item>
+        <item>Fun</item>
+    </string-array>
+    <string-array name="priority">
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+    </string-array>
+</resources>
