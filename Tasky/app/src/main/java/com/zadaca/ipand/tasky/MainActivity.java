@@ -76,7 +76,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         });
     }
 
-
         private ArrayList<Task> loadTask() {
         return TaskDBHelper.getInstance(this).getAllTasks();
     }
