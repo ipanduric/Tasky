@@ -2,21 +2,25 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/bg">
 
     <ImageView
         android:id="@+id/ivPriority"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:foregroundGravity="center"
+        android:layout_width="50px"
+        android:layout_height="250px"
         android:layout_alignParentTop="true"
-        android:layout_alignBottom="@+id/tvDescription"
-        />
+        android:layout_alignBottom="@+id/tvCategory" />
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/ivPriority"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        android:textSize="17dp"
         />
 
     <TextView
@@ -24,6 +28,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/ivPriority"
-        android:layout_below="@id/tvTitle"/>
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/tvTitle"
+        android:textSize="13dp"/>
 
+    <TextView
+        android:id="@+id/tvCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/ivPriority"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="right"
+        android:layout_below="@id/tvDescription"/>
 </RelativeLayout>

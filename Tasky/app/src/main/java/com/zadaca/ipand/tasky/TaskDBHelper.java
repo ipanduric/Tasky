@@ -19,9 +19,11 @@ public class TaskDBHelper extends SQLiteOpenHelper {
 
     private static TaskDBHelper mTaskDBHelper = null;
 
-    private TaskDBHelper (Context context) {
+    protected TaskDBHelper(Context context) {
         super(context.getApplicationContext(), Schema.DATABASE_NAME, null, Schema.SCHEMA_VERSION);
     }
+
+
 
     public static synchronized TaskDBHelper getInstance(Context context) {
         if (mTaskDBHelper == null) {
@@ -42,7 +44,7 @@ public class TaskDBHelper extends SQLiteOpenHelper {
     }
 
     static final String CREATE_TABLE_MY_TASK = "CREATE TABLE " + Schema.TABLE_MY_TASK +
-            " (" + Schema.TITLE + " TEXT,"  + Schema.DESCRIPTION + " TEXT," + Schema.CATEGORY + " TEXT," + Schema.PRIORITY + " INTEGER);";
+            " (" + Schema.TITLE + " TEXT,"  + Schema.DESCRIPTION + " TEXT," + Schema.CATEGORY + " TEXT," + Schema.PRIORITY + " TEXT);";
 
     static final String DROP_TABLE_MY_TASK = "DROP TABLE IF EXISTS " + Schema.TABLE_MY_TASK;
 
@@ -70,13 +72,19 @@ public class TaskDBHelper extends SQLiteOpenHelper {
                 String title = taskCursor.getString(0);
                 String description = taskCursor.getString(1);
                 String category = taskCursor.getString(2);
-                int priority = taskCursor.getInt(3);
+                String priority = taskCursor.getString(3);
                 task.add(new Task(title, description, category, priority));
             } while (taskCursor.moveToNext());
         }
         taskCursor.close();
         writeableDatabase.close();
         return task;
+    }
+
+    public void deleteTask(Task task) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete(Schema.TABLE_MY_TASK, Schema.TITLE + "=?", new String[] {task.getTitle()});
+        db.close();
     }
 
     public static class Schema{

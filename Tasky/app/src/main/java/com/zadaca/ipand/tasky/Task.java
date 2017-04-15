@@ -9,9 +9,9 @@ public class Task {
     private String mTitle;
     private String mDescription;
     private String mCategory;
-    private int mPriority;
+    private String mPriority;
 
-    public Task(String title, String description, String category, int priority) {
+    public Task(String title, String description, String category, String priority) {
         mTitle = title;
         mDescription = description;
         mCategory = category;
@@ -30,7 +30,7 @@ public class Task {
         return mCategory;
     }
 
-    public int getPriority() {
+    public String getPriority() {
         return mPriority;
     }
 
